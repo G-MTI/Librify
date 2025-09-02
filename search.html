@@ -15,13 +15,20 @@
     </head>
 
     <body class="custom-body">
-      <div class="top">
-        <a class="logo" href="index.html"><div class="l">L</div>ibrify</a>
-        <p class="nav-link" style="margin-right: 48px ; margin-left: 24px;">Serach for a book</p>
-        <input type="text" id="search" placeholder="ISBN" style="display: flex; flex: 1;">
-      </div>
-      <main>
-      </main>
+        <div class="top">
+            <a class="logo" href="index.html"><div class="l">L</div>ibrify</a>
+            <p class="nav-link" style="margin-right: 48px ; margin-left: 24px;">Search for a book</p>
+            <div class="search-bar">
+                <input type="text" id="search" placeholder="ISBN" style="display: flex; flex: 1;">
+                <a>
+                  <button id="btn-search"><span class="material-symbols-outlined">search</span></button>
+                </a>
+            </div>
+        </div>
+        <main>
+          <div id="results"></div>
+        </main>
+        <script src="search.js"></script>
     </body>
     <footer>
         <p>© 2025 Librify</p>
