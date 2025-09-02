@@ -17,7 +17,7 @@ async function searchBook() {
 
         const dataCover = data.docs.filter(book => book.cover_i);
 
-        const books = dataCover.slice(0, 5); // docs = array contenuto nell’oggetto JSON restituito dall’API.
+        const books = dataCover.slice(0, 8); // docs = array contenuto nell’oggetto JSON restituito dall’API.
                                                   // slice() = crea un nuovo array rendendo larray data e tagliandolo
                                                   // books è un array dentro una costante osso maniolarlo come un array ma non posso riassegnarlo
         if (books.length === 0) {
@@ -28,9 +28,9 @@ async function searchBook() {
         books.forEach(book => {
             const div = document.createElement("div");
             div.classList.add("book");
-  
-            const titolo = book.title || "Titolo non disponibile";
-            const autore = book.author_name ? book.author_name.join(", ") : "Autore non disponibile";
+
+            const titolo = book.title || "Title not available";
+            const autore = book.author_name ? book.author_name.join(", ") : "Author not available";
             let coverURL = book.cover_i
               ? `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`
               : "img/default-cover.jpg";
@@ -46,7 +46,7 @@ async function searchBook() {
     }
 
     catch (error) {
-        console.error("Errore nella chiamata API:", error);
-        results.textContent = "Errore durante la ricerca. Riprova più tardi.";
+        console.error("Error fetching data", error);
+        results.textContent = "Error fetching data. Please try again later.";
     }
 }
