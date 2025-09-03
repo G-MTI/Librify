@@ -26,16 +26,11 @@ function renderBooks(books) {
                 <p>Add to my library</p>
               </div>`;
 
-            div.querySelector(".add-btn").addEventListener("click", () => {
-            addToLibrary({
-              isbn: isbn,
-              title: book.title,
-              author: book.author,
-              cover: book.cover
-            });
-          });
+            div.querySelector('.add-btn').addEventListener('click', () => {
+            addToLibrary(book);
+        });
 
-            results.appendChild(div);
+        results.appendChild(div);
     });
 }
 
@@ -51,4 +46,8 @@ function addToLibrary(book) {
   } else {
     alert("This book is already in your library.");
   }
+  
+  library.push(book); // aggiungo il nuovo libro
+  localStorage.setItem("myLibrary", JSON.stringify(library));
+  alert("Book added to your library!");
 }

@@ -20,17 +20,21 @@
             <p class="nav-link" style="margin-right: 48px ; margin-left: 24px;">Explore your library</p>
         </div>
         <main>
-            <div id="my-library"></div>
-            <div id="scanner">
-                <button id="btn-stop-scan" >Stop scanner</button> 
-                <div id="scan-status" aria-live="polite"></div>
-                <div id="reader" style="width:320px; height: 300px; margin-top:8px;"></div>
-            </div>
+            <div id="library">
 
+            </div>
         </main>
 
-        <script src="library.js"></script>
         <script src="search_result.js"></script> 
+        <script src="library.js"></script>
+
+        <script>
+        // Quando la pagina è pronta, renderizza la libreria
+            document.addEventListener("DOMContentLoaded", () => {
+                renderLibrary();
+            });
+        </script>
+        
     </body>
     <footer>
         <p>© 2025 Librify</p>
