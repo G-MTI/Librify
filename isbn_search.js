@@ -1,20 +1,19 @@
-// Istanza globale dello scanner collegata al div con id "reader"
 const html5QrCode = new Html5Qrcode("reader");
 
-// Bottone start/stop e status del lettore
 const startBtn = document.getElementById("btn-start-scan");
 const stopBtn = document.getElementById("btn-stop-scan");
 const scanStatus = document.getElementById("scan-status");
 
 // Configurazione scanner
 const config = {
-  fps: 10, // frame per secondo
-  qrbox: { width: 300, height: 120 }, // area di scansione
+  fps: 10,
+  qrbox: { width: 300, height: 120 },
   formatsToSupport: [Html5QrcodeSupportedFormats.EAN_13] // leggiamo solo codici EAN-13 (ISBN)
 };
 
 //START SCANNER
 startBtn.addEventListener("click", async () => {
+  document.getElementById("scanner").style.display = "block";
   scanStatus.textContent = "camera permissions required";
   startBtn.disabled = true;
 
@@ -28,6 +27,7 @@ startBtn.addEventListener("click", async () => {
     );
     scanStatus.textContent = "scanner started: please scan a barcode.";
     stopBtn.disabled = false;
+
   } catch (err) {
     // Fallback se "exact" non è supportato
     try {
@@ -55,6 +55,7 @@ stopBtn.addEventListener("click", async () => {
     scanStatus.textContent = "Error stopping scanner.";
   } finally {
     startBtn.disabled = false;
+    document.getElementById("scanner").style.display = "none";
   }
 });
 
@@ -80,11 +81,11 @@ async function onScanSuccess(decodedText, decodedResult) {
     console.warn("Error stopping scanner (non-critical).");
   }
 
-  // Ora possiamo usare la funzione di ricerca già esistente
   try {
     // performSearch deve accettare una query ISBN o testo
     await performSearch(isbnRaw);
     scanStatus.textContent = "Book found!";
+    document.getElementById("scanner").style.display = "none";
   } catch (err) {
     console.error(err);
     document.getElementById("results").textContent = "Error during book search.";
@@ -93,6 +94,7 @@ async function onScanSuccess(decodedText, decodedResult) {
     // Disabilito il tasto stop, riabilito start
     stopBtn.disabled = true;
     startBtn.disabled = false;
+    document.getElementById("scanner").style.display = "none";
   }
 }
 

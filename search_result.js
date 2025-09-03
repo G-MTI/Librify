@@ -20,8 +20,35 @@ function renderBooks(books) {
             div.innerHTML = `
               <img src="${escapeHtml(coverURL)}" alt="Copertina di ${escapeHtml(titolo)}" width="100">
               <h3>${escapeHtml(titolo)}</h3>
-              <p>${escapeHtml(autore)}</p>`;
+              <p>${escapeHtml(autore)}</p>
+              <div style="display: flex; flex-direction: row;">
+                <button class="add-btn"> <span class="material-symbols-outlined">add_2 </span> </button> 
+                <p>Add to my library</p>
+              </div>`;
+
+            div.querySelector(".add-btn").addEventListener("click", () => {
+            addToLibrary({
+              isbn: isbn,
+              title: book.title,
+              author: book.author,
+              cover: book.cover
+            });
+          });
 
             results.appendChild(div);
     });
+}
+
+function addToLibrary(book) {
+  // recupera la libreria attuale da localStorage
+  let library = JSON.parse(localStorage.getItem("myLibrary")) || [];
+
+  // evita duplicati (controlla ISBN)
+  if (!library.some(b => b.isbn === book.isbn)) {
+    library.push(book);
+    localStorage.setItem("myLibrary", JSON.stringify(library));
+    alert(`${book.title} added to your library!`);
+  } else {
+    alert("This book is already in your library.");
+  }
 }

@@ -17,16 +17,10 @@
     <body class="custom-body">
         <div class="top">
             <a class="logo" href="index.html"><div class="l">L</div>ibrify</a>
-            <p class="nav-link" style="margin-right: 48px ; margin-left: 24px;">Search for a book</p>
-            <div class="search-bar">
-                <input type="text" id="search" placeholder="Search by ISBN or title" style="display: flex; flex: 1;">
-                <button id="btn-search"><span class="material-symbols-outlined">search</span></button>
-                <button id="btn-start-scan"><span class="material-symbols-outlined">barcode_scanner</span></button>
-            </div>
-            <a href="library.html" style="color: var(--bg); text-align: end;"><span class="material-symbols-outlined" >newsstand</span></a>
+            <p class="nav-link" style="margin-right: 48px ; margin-left: 24px;">Explore your library</p>
         </div>
         <main>
-            <div id="results"></div>
+            <div id="my-library"></div>
             <div id="scanner">
                 <button id="btn-stop-scan" >Stop scanner</button> 
                 <div id="scan-status" aria-live="polite"></div>
@@ -34,11 +28,7 @@
             </div>
 
         </main>
-        <script src="https://unpkg.com/html5-qrcode"></script>
 
-        <script src="protection.js"></script>
-        <script src="text_search.js"></script>
-        <script src="isbn_search.js"></script>
         <script src="library.js"></script>
         <script src="search_result.js"></script> 
     </body>

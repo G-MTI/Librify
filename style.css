@@ -57,6 +57,7 @@ a{
 
 .logo {
   display: flex;
+  color: var(--bg);
   flex-direction: row;
   font-size: xx-large;
   align-items: center;
@@ -68,6 +69,14 @@ a{
   font-family: "Great Vibes", cursive;
   font-size: 60px;
   margin-right: 10px;
+}
+
+.nav-link {
+  color: var(--bg);
+}
+
+nav-link:hover {
+  background-color: var(--hover);
 }
 
 nav {
@@ -158,4 +167,17 @@ button:hover {
   background-color: var(--bg);
   color: var(--h1);
   font-size: large;
+}
+
+#btn-stop-scan {
+  background-color: var(--bg);
+  border: none;
+  cursor: pointer;
+  color: var(--hover);
+  border-radius: 24px;
+  padding: 12px;
+}
+
+#scanner {
+  display: none;
 }
