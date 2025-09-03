@@ -1,6 +1,7 @@
 :root{
   --bg: #ddd3d3;
   --h1: #222222;
+  --hover: #464646;
 }
 
 body {
@@ -139,4 +140,22 @@ footer{
 
 .book p {
   font-size: 14px;
+}
+
+button {
+  background-color: var(--bg);
+  border: none;
+  cursor: pointer;
+  color: var(--hover);
+}
+
+button:hover {
+  color: var(--h1);
+}
+
+#search {
+  border: none;
+  background-color: var(--bg);
+  color: var(--h1);
+  font-size: large;
 }
