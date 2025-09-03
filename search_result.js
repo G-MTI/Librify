@@ -18,9 +18,9 @@ function renderBooks(books) {
               : "img/default-cover.jpg";
 
             div.innerHTML = `
-              <img src="${coverURL}" alt="Copertina di ${titolo}" width="100">
-              <h3>${titolo}</h3>
-              <p>${autore}</p>`;
+              <img src="${escapeHtml(coverURL)}" alt="Copertina di ${escapeHtml(titolo)}" width="100">
+              <h3>${escapeHtml(titolo)}</h3>
+              <p>${escapeHtml(autore)}</p>`;
 
             results.appendChild(div);
     });

@@ -25,8 +25,19 @@
             </div>
         </div>
         <main>
-          <div id="results"></div>
+            <button id="btn-start-scan">Scansiona ISBN</button>
+            <button id="btn-stop-scan" disabled>Stop scanner</button>
+
+            <div class="scanner">
+                <div id="scan-status" aria-live="polite"></div>
+                <div id="reader" style="width:320px; height: 300px; margin-top:8px;"></div>
+            </div>
+
+            <div id="results"></div>
         </main>
+        <script src="https://unpkg.com/html5-qrcode"></script>
+
+        <script src="protection.js"></script>
         <script src="text_search.js"></script>
         <script src="isbn_search.js"></script>
         <script src="search_result.js"></script>
