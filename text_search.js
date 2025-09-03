@@ -1,7 +1,6 @@
 document.getElementById("btn-search").addEventListener("click", searchBook);
 
-async function searchBook() {
-    const query = document.getElementById('search').value.trim().toLowerCase(); // query = valore inserito dall''utente ma ppulito (trim e toLowerCase)
+async function performSearch(query) {
     const results = document.getElementById('results');
 
     results.innerHTML = ''; 
@@ -26,4 +25,9 @@ async function searchBook() {
         console.error("Error fetching data", error);
         results.textContent = "Error fetching data. Please try again later.";
     }
+}
+
+function searchBook() {
+    const query = document.getElementById('search').value.trim().toLowerCase(); // query = valore inserito dall''utente ma ppulito (trim e toLowerCase)
+    performSearch(query);
 }
