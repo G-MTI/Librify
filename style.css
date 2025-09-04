@@ -4,7 +4,7 @@
   --hover: #464646;
 }
 
-body {
+.body-home {
   font-family: "Montserrat", sans-serif;
   background-image: url("img/Librify_desk.png");
   background-size: cover;
@@ -103,6 +103,17 @@ footer{
   color: var(--bg);
 }
 
+.body-search {
+  font-family: "Montserrat", sans-serif;
+  background-color: #558BAD;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  display: flex;
+  flex-direction: column;
+  padding: 48px;
+}
+
 .top {
   display: flex;
   flex-direction: row;
@@ -127,7 +138,7 @@ footer{
 }
 
 .book {
-  width: 20%;
+  width: 18vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -180,4 +191,17 @@ button:hover {
 
 #scanner {
   display: none;
+}
+
+.library-main {
+  display: flex;
+  flex-direction: row;
+}
+
+#library {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }

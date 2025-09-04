@@ -38,16 +38,19 @@ function addToLibrary(book) {
   // recupera la libreria attuale da localStorage
   let library = JSON.parse(localStorage.getItem("myLibrary")) || [];
 
-  // evita duplicati (controlla ISBN)
-  if (!library.some(b => b.isbn === book.isbn)) {
+  // scegli una chiave univoca: meglio ISBN o key
+  const hasIsbn = Array.isArray(book.isbn) && book.isbn.length > 0;
+  const bookId = hasIsbn ? book.isbn[0] : book.key; // fallback se manca isbn
+
+  // evita duplicati
+  if (!library.some(b => {
+    const bId = Array.isArray(b.isbn) && b.isbn.length > 0 ? b.isbn[0] : b.key;
+    return bId === bookId;
+  })) {
     library.push(book);
     localStorage.setItem("myLibrary", JSON.stringify(library));
     alert(`${book.title} added to your library!`);
   } else {
     alert("This book is already in your library.");
   }
-  
-  library.push(book); // aggiungo il nuovo libro
-  localStorage.setItem("myLibrary", JSON.stringify(library));
-  alert("Book added to your library!");
 }
