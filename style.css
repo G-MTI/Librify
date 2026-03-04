@@ -39,12 +39,14 @@ a{
   font-size: 90px;
   align-items: center;
   justify-content: center;
+  color: var(--bg);
 }
 
 .L{
   font-family: "Great Vibes", cursive;
   font-size: 140px;
   margin-right: 20px;
+  color: var(--bg);
 }
 
 .hero-bottom {
